@@ -17,7 +17,7 @@ const subscribe = (topic, callback) => {
 		const fullTopic = topic
 		const wildcards = wildcard(fullTopic, subscribeTopic)
 		console.log({ message, fullTopic, wildcards })
-		callback({ message, fullTopic, wildcards })
+		callback({ message, fullTopic, wildcards, subscribeTopic })
 	})
 }
 
