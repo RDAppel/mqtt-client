@@ -9,11 +9,12 @@ const publish = client.publish.bind(client)
 const subscribe = (topic, callback) => {
 
 	const subscribeTopic = topic
-	client.subscribe(topic)
+	client.subscribe(subscribeTopic)
+
 	client.on('message', (topic, payload) => {
 		const message = payload.toString()
 		const fullTopic = topic
-		const wildcards = wildcard(fullTopic, subscribeTopic)
+		const wildcards = wildcard(subscribeTopic, fullTopic)
 		callback({ message, fullTopic, wildcards })
 	})
 }
