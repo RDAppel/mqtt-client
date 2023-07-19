@@ -8,11 +8,12 @@ const client = mqtt.connect(host)
 const publish = client.publish.bind(client)
 
 const subscribe = (topic, callback) => {
+	const unique = mqtt.connect(host)
 
 	const subscribeTopic = topic
-	client.subscribe(subscribeTopic)
+	unique.subscribe(subscribeTopic)
 
-	client.on('message', (topic, payload) => {
+	unique.on('message', (topic, payload) => {
 		const message = payload.toString()
 		const fullTopic = topic
 		const wildcards = wildcard(fullTopic, subscribeTopic)
