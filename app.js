@@ -16,7 +16,7 @@ const subscribe = (topic, callback) => {
 		const message = payload.toString()
 		const fullTopic = topic
 		const wildcards = wildcard(fullTopic, subscribeTopic)
-		console.log({ message, fullTopic, wildcards })
+		//console.log({ message, fullTopic, wildcards, subscribeTopic })
 		callback({ message, fullTopic, wildcards, subscribeTopic })
 	})
 }
