@@ -2,7 +2,8 @@
 const mqtt = require('mqtt')
 const wildcard = require('mqtt-wildcard')
 
-const client = mqtt.connect(process.env.MQTT_HOST)
+const host = process.env.MQTT_HOST || 'wxs://192.168.1.9'
+const client = mqtt.connect(host)
 
 const publish = client.publish.bind(client)
 
